@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../src/favicon.ico">
+
+    <title>农场信息管理系统</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../lib/bootstrap.min.css" rel="stylesheet">
+
+    
+
+    <!-- Custom styles for this template -->
+    <link href="./index.css" rel="stylesheet">
+
+    
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="">农场信息管理系统</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <!-- <li><a href="#">登录</a></li> -->
+            <li><a target="_blank" href="./help.pdf">帮助</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a>概览</a></li>
+            <li><a>菜地</a></li>
+            <li><a>作物</a></li>
+          
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a>种植方案</a></li>
+            
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a>其他信息</a></li>
+            
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">概览</h1>
+          
+          <div class="placeholders hidden-xs">
+            <div id="pie_charts_set" class="row placeholder">
+                <!-- <div class="col-md-4" style="height: 250px;" id="container1"></div>
+                <div class="col-md-4" style="height: 250px;" id="container2"></div>
+                <div class="col-md-4" style="height: 250px;" id="container3"></div> -->
+            </div>
+            
+          </div>
+
+          
+          <h1 class="page-header" style="margin-top: 30px;">菜地
+            <small>
+              <div style="float: right; max-width: 500px; margin-top: 5px;" class="col-xs-6">
+                <div class="input-group">
+                  <input id="find_plot" type="text" class="form-control" placeholder="搜索菜地">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                  </span>
+                </div><!-- /input-group -->
+              </div><!-- /.col-lg-6 -->
+            </small>
+          </h1>
+          
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>菜地名称</th>
+                  <th>菜地面积 ㎡</th>
+                  <th>菜地描述</th>
+                  <th>操作</th>
+                  
+                </tr>
+              </thead>
+              <tbody id="plot_info">
+                <!-- <tr>
+                  <td>1,001</td>
+                  <td>Lorem</td>
+                  <td>ipsum</td>
+                  <td>哈哈哈</td>
+                </tr> -->
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td></td>
+                  <td><input id="plot_name" type="text" class="form-control" placeholder="菜地名称"></td>
+                  <td><input id="plot_area" type="text" class="form-control" placeholder="菜地面积"></td>
+                  <td><input id="plot_description" type="text" class="form-control" placeholder="菜地描述"></td>
+                  <td><button id="insert_plot" type="button" class="btn btn-primary btn-sm">添加</button></td>
+                </tr>
+              </tfoot>
+            </table>
+
+            
+          </div>
+
+          
+          <h1 class="page-header" style="margin-top: 30px;">作物<small>
+              <div style="float: right; max-width: 500px; margin-top: 5px;" class="col-xs-6">
+                <div class="input-group">
+                  <input id="find_crop" type="text" class="form-control" placeholder="搜索作物">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                  </span>
+                </div><!-- /input-group -->
+              </div><!-- /.col-lg-6 -->
+            </small>
+          </h1>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>作物名称</th>
+                  <th>作物数量</th>
+                  <th>单棵面积 ㎡</th>
+                  <th>种植周期 y</th>
+                  <th>单棵净收益 ￥</th>
+                  <th>作物描述</th>
+                  <th>操作</th>
+                  
+                </tr>
+              </thead>
+              <tbody id="crop_info">
+                <!-- <tr>
+                  <td>1,001</td>
+                  <td>Lorem</td>
+                  <td>ipsum</td>
+                  <td>哈哈哈</td>
+                </tr> -->
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td></td>
+                  <td><input id="crop_name" type="text" class="form-control" placeholder="作物名称"></td>
+                  <td><input id="crop_num" type="text" class="form-control" placeholder="作物数量"></td>
+                  <td><input id="crop_area" type="text" class="form-control" placeholder="单棵面积"></td>
+                  <td><input id="crop_cycle" type="text" class="form-control" placeholder="种植周期"></td>
+                  <td><input id="crop_profit" type="text" class="form-control" placeholder="单棵净收益"></td>
+                  <td><input id="crop_description" type="text" class="form-control" placeholder="作物描述"></td>
+                  <td><button id="insert_crop" type="button" class="btn btn-primary btn-sm">添加</button></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+
+          
+          <h1 class="page-header" style="margin-top: 30px;">种植方案<small>
+            <div style="float: right; max-width: 500px; margin-top: 5px;" class="col-xs-6">
+              <div class="input-group">
+                <input id="find_plant" type="text" class="form-control" placeholder="搜索方案">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                </span>
+              </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+          </small></h1>
+          <div id="plant_info" class="placeholders">
+
+          </div>
+
+
+
+          
+          <h1 class="page-header" style="margin-top: 30px;">其他信息</h1>
+          <div class="footer">
+              <span style="margin: 5px;" class="glyphicon glyphicon-menu-right"></span>
+              <div class="contact_us">
+                
+                <span>UESTC</span>
+                <span>作者：VV</span>
+                <span>Email：1272146309@qq.com</span>
+                <span>©2018 VV</span>
+
+              </div>
+              <span style="margin: 5px; margin-left: 40px;" class="glyphicon glyphicon-menu-right"></span>
+              <div class="contact_us">
+                
+                <span>友情链接</span>
+                <span><a target="_blank" href="http://v3.bootcss.com/">Bootstrap</a></span>
+                <span><a target="_blank" href="http://glyphicons.com/">Glyphicons</a></span>
+                <span><a target="_blank" href="http://www.ruanyifeng.com/blog/">阮一峰的网络日志</a></span>
+                <span></span>
+
+              </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <!-- 模态框 -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Modal title</h4>
+          </div>
+          <div style="padding-left: 100px;" class="modal-body">
+            <div class="dropdown flex-column">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                选择作物
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <!-- <li><a>Action</a></li>
+                <li><a>Another action</a></li> -->
+              </ul>
+            </div>
+            <div id="after_dropdown" class="flex-column" style="display:none;">
+              <div class="flex-row">
+                <span> 1 </span>
+                <input id="shift_num" style="margin: 5px;" type="range" name="points" min="1" max="100" />
+                <span> 100</span>
+              </div>
+              <span id="dd_id">ID：</span>
+              <span id="dd_num">数量：</span>
+              <span id="dd_area">面积：</span>
+              <span id="dd_cycle">周期：</span>
+              <span id="dd_profit">净收益：</span>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button id="decide" disabled="disabled" data-dismiss="modal" type="button" class="btn btn-primary">确认</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+    
+
+    <script type="text/javascript" src="../lib/jquery-3.2.0.min.js"></script>
+    <script src="../lib/bootstrap.min.js"></script>
+    <script src="../lib/echarts.common.min.js"></script>
+    <!-- <script src="../lib/vintage.js"></script>引入 vintage 主题 -->
+    <script type="text/javascript" src="./tools.js"></script>
+    <script type="text/javascript" src="./index.js"></script>
+    
+    
+  </body>
+</html>
